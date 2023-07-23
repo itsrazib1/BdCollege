@@ -13,7 +13,7 @@ const AdForm = () => {
     const onSubmit = data => {
         console.log(data);
         const saveUser = { university: college.name, uPhoto: college.picture, review: college.rating, name: data.name, email: data.email, subject: data.subject, phone: data.number, address: data.address, date: data.date, photo: data.photo }
-        fetch('http://localhost:5000/apply', {
+        fetch('https://i-college-server-beta.vercel.app/apply', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

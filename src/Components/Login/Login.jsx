@@ -2,7 +2,7 @@ import { useContext, useState } from "react";
 import { Form, Link, useLocation, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../providers/AuthProvider";
-
+import img from '/public/image/Login.jpg'
 const Login = () => {
     const [showPassword, setShowPassword] = useState(false);
     const { register, handleSubmit, formState: { errors } } = useForm();
@@ -39,7 +39,7 @@ const Login = () => {
                 <div className="hero-content flex-col lg:flex-row-reverse">
                     <div className="text-center">
                         <h1 className="text-5xl font-bold">Login now!</h1>
-                        <img className="h-96 w-full rounded-3xl mt-3" src="/public/image/Login.jpg" alt="" />
+                        <img className="h-96 w-full rounded-3xl mt-3" src={img} alt="" />
                     </div>
                     <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                         <Form onSubmit={handleSubmit(onSubmit)} className="card-body">

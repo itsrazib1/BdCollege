@@ -8,7 +8,7 @@ const MyCollege = () => {
     const { user } = useContext(AuthContext);
     const [apply, setApply] = useState([]);
 
-    const url = `http://localhost:5000/myCollege?email=${user?.email}`;
+    const url = `https://i-college-server-beta.vercel.app/myCollege?email=${user?.email}`;
     useEffect(() => {
         fetch(url)
             .then(res => res.json())
@@ -20,7 +20,7 @@ const MyCollege = () => {
     const onSubmit = data => {
         console.log(data);
         // const saveUser = { review: data.review }
-        // fetch(`http://localhost:5000/applies/${_id}`, {
+        // fetch(`https://i-college-server-beta.vercel.app/applies/${_id}`, {
         //     method: 'PUT',
         //     headers: {
         //         'content-type': 'application/json'

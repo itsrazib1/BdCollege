@@ -12,7 +12,7 @@ const Profile = () => {
     const onSubmit = data => {
         const Update = { university: data.university, address: data.address}
         console.log(Update);
-        fetch(`http://localhost:5000/applies/${_id}`, {
+        fetch(`https://i-college-server-beta.vercel.app/applies/${_id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

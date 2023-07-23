@@ -7,7 +7,7 @@ const Colleges = () => {
     const { search } = useContext(AuthContext);
 
     const [data, setData] = useState([]);
-    const url = ('http://localhost:5000/colleges')
+    const url = ('https://i-college-server-beta.vercel.app/colleges')
     useEffect(() => {
         fetch(url)
             .then(res => res.json())

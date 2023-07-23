@@ -36,17 +36,17 @@ const router = createBrowserRouter([
       {
         path: "/details/:_id",
         element: <Details />,
-        loader: ({ params }) => fetch(`http://localhost:5000/details/${params._id}`)
+        loader: ({ params }) => fetch(`https://i-college-server-beta.vercel.app/details/${params._id}`)
       },
       {
         path: "/admission",
         element: <Admission />,
-        loader: () => fetch('http://localhost:5000/colleges')
+        loader: () => fetch('https://i-college-server-beta.vercel.app/colleges')
       },
       {
         path: "/adForm/:_id",
         element: <AdForm />,
-        loader: ({ params }) => fetch(`http://localhost:5000/details/${params._id}`)
+        loader: ({ params }) => fetch(`https://i-college-server-beta.vercel.app/details/${params._id}`)
       },
       {
         path: "/my-college",
