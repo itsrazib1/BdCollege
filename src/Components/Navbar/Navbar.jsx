@@ -1,15 +1,43 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider";
-
+import { useState, useEffect, useCallback } from "react";
 const Navbar = () => {
-  const { user, logOut, setSearch } = useContext(AuthContext);
+  const { user, logOut } = useContext(AuthContext);
+  const [colleges, setColleges] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [filteredColleges, setFilteredColleges] = useState([]);
   const handleLogOut = () => {
     logOut()
       .then()
       .catch((error) => error);
   };
-
+  const fetchCollegesData = () => {
+    fetch("https://i-college-server-beta.vercel.app/colleges")
+      .then((response) => response.json())
+      .then((data) => {
+        setColleges(data);
+      })
+      .catch((error) => console.error("Error fetching colleges:", error));
+  };
+  const filterColleges = useCallback(() => {
+    if (searchTerm.trim() === "") {
+      setFilteredColleges(colleges);
+    } else {
+      const filtered = colleges.filter((college) =>
+        college.name.toLowerCase().includes(searchTerm.toLowerCase())
+      );
+      setFilteredColleges(filtered);
+    }
+  }, [colleges, searchTerm]);
+  useEffect(() => {
+    // Fetch the colleges data from the API when the component mounts
+    fetchCollegesData();
+  }, []);
+  useEffect(() => {
+    // Whenever the search term changes, filter the colleges
+    filterColleges();
+  }, [filterColleges]);
   const navOptions = (
     <>
       <li>
@@ -28,10 +56,11 @@ const Navbar = () => {
         <div>
           <div>
             <input
-              className="input input-bordered join-item bg-[#d8dbdda6]"
               type="text"
-              onChange={(e) => setSearch(e.target.value)}
-              placeholder="Search"
+              className="input input-bordered join-item bg-[#d8dbdda6]"
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              placeholder="Search for colleges"
             />
           </div>
         </div>
@@ -43,7 +72,9 @@ const Navbar = () => {
       {user ? (
         <Link to="/">
           <li>
-            <button className="btn-error " onClick={handleLogOut}>LogOut</button>
+            <button className="btn-error " onClick={handleLogOut}>
+              LogOut
+            </button>
           </li>
         </Link>
       ) : (
@@ -112,6 +143,43 @@ const Navbar = () => {
             <></>
           )}
         </div>
+      </div>
+      <div className="text-center mt-16 " >
+        <div>
+ <ul  className={searchTerm.length === 0 ? "hidden" : "block" }>
+          {filteredColleges.map((college) => (
+            <li key={college._id}>
+              <div className=" card w-96 bg-base-100 shadow-xl">
+                <figure className="px-10 pt-10">
+                  <img
+                    src={college.picture}
+                    alt="Shoes"
+                    className="rounded-xl h-52"
+                  />
+                </figure>
+                <div className="card-body items-center text-center">
+                  <h2 className="card-title">{college.name}</h2>
+                  <p className="font-serif font-semibold">
+                    College rating: {college.rating}
+                  </p>
+                  <p className="font-serif font-semibold">
+                    Admission date: {college.admission}
+                  </p>
+                  <p className="font-serif font-semibold">
+                    Number of the research: {college.research}
+                  </p>
+                  <div className="card-actions">
+                    <Link to={`/details/${college._id}`}>
+                      <button className="btn btn-accent">Details</button>
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </li>
+          ))}
+        </ul>
+        </div>
+       
       </div>
     </>
   );
