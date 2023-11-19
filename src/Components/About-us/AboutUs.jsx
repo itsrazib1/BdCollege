@@ -8,7 +8,7 @@ const AboutUs = () => {
   return (
     <section>
       <div>
-        <div className="flex px-28 gap-10 ">
+        <div className="sm:flex flex-none px-5 sm:px-28 gap-10 ">
           <div >
             <div className="about__img">
               <img src={aboutImg} alt="" className="w-100" />
@@ -16,7 +16,7 @@ const AboutUs = () => {
           </div>
 
           <div >
-            <div className=" about__content">
+            <div className=" about__content pt-5">
               <h2 className="font-extrabold  text-5xl">About Us</h2>
               <p className="pt-4 pb-4" >
                 Lorem ipsum dolor, sit amet consectetur adipisicing elit.

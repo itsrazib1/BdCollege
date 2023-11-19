@@ -5,11 +5,11 @@ const HeroSection = () => {
   return (
     <div>
 
-      <div className="flex w-full px-96 py-28">
+      <div className="sm:flex flex-none w-full px-10 sm:px-96 py-28">
         <div>
 
           <div className="font-semibold ">
-            <h2 className="mb-4 text-4xl ">
+            <h2 className="mb-4 text-2xl sm:text-4xl ">
               Anytime Anywhere <br /> Learn on your <br /> Suitable Schedule
             </h2>
             <p className="mb-5">
@@ -29,7 +29,7 @@ const HeroSection = () => {
 
         </div>
         <div>
-          <img src={heroImg} alt="" className="w-full hero__img" />
+          <img src={heroImg} alt="" className="sm:pt-1 pt-6 w-full hero__img" />
 
         </div>
       </div>

@@ -2,7 +2,7 @@
 
 const Gallery = () => {
     return (
-        <div className="mt-14 bg-slate-300 p-0  ">
+        <div className="mt-14  p-0  ">
             <div className="text-center font-serif text-3xl">
                 <h1> Best Students Photo Gallery</h1>
             </div>

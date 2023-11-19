@@ -9,7 +9,7 @@ const ChooseUs = () => {
   return (
     <section>
       <div>
-        <div className="flex px-36 gap-20 py-10">
+        <div className="sm:flex flex-none  px-5 sm:px-36 gap-20 py-10">
           <div >
             <div className="choose__content mt-10">
               <h2 className="text-2xl">Why Choose Us</h2>
@@ -26,7 +26,7 @@ const ChooseUs = () => {
           </div>
 
           <div >
-            <div className="choose__img">
+            <div className="pt-10 sm:pt-0 choose__img">
               {showVideo ? (
                 <iframe width="560" height="315" src="https://www.youtube.com/embed/YJDbMZGEpMw?si=ABNysxTfrlWGvrBP" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
               ) : (
