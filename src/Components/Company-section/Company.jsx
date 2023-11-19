@@ -3,8 +3,8 @@
 const Company = () => {
   return (
     <section>
-      <div>
-        <div className="flex gap-10 py-10   text-4xl  justify-center" >
+      <div className="">
+        <div className="grid sm:grid-cols-6 grid-cols-3 gap-10 px-10 py-10  sm:text-4xl  justify-center" >
           <div  >
             <h3 className="flex align-items-center gap-1">
               <img className="h-8" src="https://static.vecteezy.com/system/resources/previews/008/385/863/non_2x/vimeo-social-media-icon-logo-design-symbol-illustration-free-vector.jpg" alt="" /> Vimeo
