@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import img from '/public/image/pexels-pixabay-267885.jpg'
 
 const Banner = () => {
@@ -9,7 +10,7 @@ const Banner = () => {
                 <div className="max-w-md">
                     <h1 className="text-5xl font-bold">Admission going on</h1>
                     <p className="py-6">Choose the college of your choice and apply</p>
-                    <button className="btn btn-accent">Apply Now</button>
+                    <button className="btn btn-accent"><Link to='/admission'>Apply Now</Link> </button>
                 </div>
             </div>
         </div>

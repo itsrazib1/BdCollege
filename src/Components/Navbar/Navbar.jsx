@@ -41,41 +41,42 @@ const Navbar = () => {
   const navOptions = (
     <>
       <li>
-        <Link to="/">Home</Link>
+        <Link  to="/"><span className="hover:text-cyan-500 ">Home</span></Link>
       </li>
       <li>
-        <Link to="/colleges">Colleges</Link>
+        <Link className="hover:text-cyan-500 " to="/colleges">Colleges</Link>
       </li>
       <li>
-        <Link to="/admission">Admission</Link>
+        <Link className="hover:text-cyan-500 " to="/admission">Admission</Link>
       </li>
       <li>
-        <Link to="/my-college">My College</Link>
+        <Link className="hover:text-cyan-500 " to="/my-college">My College</Link>
       </li>
-      <div className="join mx-5 -mt-2">
-        <div>
-          <div>
+      <div className="join mx-5 sm:py-0 py-3 -mt-2 ">
+        <div className="">
+          <div className=" ">
             <input
               type="text"
-              className="input input-bordered join-item bg-[#d8dbdda6]"
+              className="input sm:h-12 h-8 w-32 sm:w-48 input-bordered join-item bg-[#d8dbdda6]"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
               placeholder="Search for colleges"
             />
           </div>
         </div>
-        <div className="indicator">
-          <button className="btn  btn-success join-item">Search</button>
+        <div className=" rounded-s-none  ">
+          <button className=" sm:h-12 h-8 w-12 sm:w-16 bg-cyan-400 ">Search</button>
         </div>
       </div>
 
       {user ? (
         <Link to="/">
           <li>
-            <button className="btn-error " onClick={handleLogOut}>
-              LogOut
+            <button className="btn-error w-24 text-center bg-red-600 text-white " onClick={handleLogOut}>
+              Log Out
             </button>
           </li>
+          <li></li>
         </Link>
       ) : (
         <li>
@@ -87,7 +88,7 @@ const Navbar = () => {
 
   return (
     <>
-      <div className="navbar fixed z-50 bg-opacity-40 bg-[#8ef7f7] font-semibold text-black px-10 top-0">
+      <div className="navbar fixed z-50 bg-opacity-40 bg-[#ffff] font-semibold text-black px-10 top-0">
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -114,7 +115,7 @@ const Navbar = () => {
             </ul>
           </div>
           <div className="flex">
-            <p className="ms-2 text-xl text-center font-serif font-semibold">
+            <p className="ps-3 text-base mt-3 sm:text-xl pb-3 px-0 text-center font-serif font-semibold">
               BDCollege
             </p>
           </div>
@@ -123,19 +124,20 @@ const Navbar = () => {
           <ul className="menu menu-horizontal px-1">{navOptions}</ul>
         </div>
 
-        <div className="navbar-end">
+        <div className="navbar-end sm:me-10 sm:pb-4 pb-0" >
           {user ? (
             <Link to="/profile">
               <button>
-                <p className="me-8 text-lg">{user?.displayName}</p>
+                <p className="pr-2 text-sm sm:text-lg">{user?.displayName}</p>
               </button>
             </Link>
           ) : (
             <></>
           )}
+          
           {user ? (
             <img
-              className="w-16 h-16 rounded-full"
+              className=" w-8 h-8 sm:w-12 sm:h-12 rounded-full"
               src={user?.photoURL}
               alt=""
             />
