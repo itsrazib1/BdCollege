@@ -4,6 +4,7 @@ import ChooseUs from "../Choose-us/ChooseUs";
 import Company from "../Company-section/Company";
 import HeroSection from "../Hero-Section/HeroSection";
 import Achievement from "./Achievement";
+import Addmore from "./Addmore";
 import Banner from "./Banner";
 import Gallery from "./Gallery";
 
@@ -19,6 +20,7 @@ const Home = () => {
             <AboutUs></AboutUs>
             <ChooseUs></ChooseUs>
             <Company></Company>
+            <Addmore></Addmore>
         </>
     );
 };

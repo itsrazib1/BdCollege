@@ -3,7 +3,7 @@
 const Company = () => {
   return (
     <section>
-      <div className="">
+      <div className="py-20">
         <div className="grid sm:grid-cols-6 grid-cols-3 gap-10 px-10 py-10  sm:text-4xl  justify-center" >
           <div  >
             <h3 className="flex align-items-center gap-1">
